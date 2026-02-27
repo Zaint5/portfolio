@@ -321,47 +321,41 @@
     }
 
     .contact-form {
-      max-width: 650px;
+      max-width: 800px;         /* widened to accommodate iframe */
       margin: 0 auto;
       background: var(--surface);
       backdrop-filter: blur(12px);
-      padding: 3rem;
+      padding: 2.5rem 2rem;
       border-radius: 40px;
       border: 1px solid rgba(255,255,255,0.05);
       box-shadow: 0 30px 40px -20px black;
     }
 
-    .input-group {
-      margin-bottom: 1.2rem;
-    }
-
-    input, textarea {
+    .google-form-container {
       width: 100%;
-      padding: 1rem 1.5rem;
-      border-radius: 60px;
-      border: 1px solid #223;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 1rem;
-      transition: 0.2s;
-      outline: none;
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.2);
     }
-
-    textarea {
-      border-radius: 30px;
-      resize: vertical;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--accent-primary);
-      box-shadow: 0 0 15px var(--accent-primary);
-    }
-
-    button.btn {
+    .google-form-container iframe {
+      display: block;
       width: 100%;
-      font-size: 1.2rem;
-      padding: 1rem;
-      border-radius: 60px;
+      height: 980px;            /* enough height for full form */
+      border: none;
+      border-radius: 24px;
+    }
+
+    /* small note for extra info */
+    .contact-info-note {
+      text-align: center;
+      margin-top: 2rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.8rem;
+    }
+    .contact-info-note i {
+      color: var(--accent-primary);
+      margin: 0 6px;
     }
 
     footer {
@@ -437,7 +431,8 @@
       .hero-text { text-align: center; }
       .hero-text p { border-left: none; padding-left: 0; text-align: center; }
       .section-title { font-size: 2.2rem; }
-      .contact-form { padding: 2rem 1.5rem; }
+      .contact-form { padding: 1.8rem 1rem; }
+      .google-form-container iframe { height: 1050px; } /* a bit taller on mobile */
 
       /* on mobile, less aggressive offset */
       .card:nth-child(1),
@@ -483,7 +478,7 @@
     </div>
   </section>
 
-  <!-- SKILLS (cards unaffected by the left/right animation, but still reveal) -->
+  <!-- SKILLS -->
   <section id="skills">
     <h2 class="section-title"><span>Expertise</span> & tools</h2>
     <div class="grid">
@@ -494,34 +489,32 @@
     </div>
   </section>
 
-  <!-- PROJECTS – POS + landing pages with staggered left/right scroll animation -->
+  <!-- PROJECTS -->
   <section id="projects">
     <h2 class="section-title">Featured <span>projects</span></h2>
     <div class="grid" id="project-grid">
-      <!-- POS project (card 1 - from left) -->
       <div class="card"><h3>🧾 POS System — smart store</h3><p>Complete Point of Sale solution: inventory management, sales analytics, invoice generator, role‑based cashier/admin panels. Built with MERN + Redux + real‑time stock updates.</p></div>
-      <!-- clean landing page (card 2 - from left) -->
       <div class="card"><h3>📱 Clean landing page – Fintech</h3><p>High‑conversion, responsive landing for a fintech startup. 100% lighthouse score, smooth animations, and lead capture form.</p></div>
-      <!-- card 3 - from right -->
       <div class="card"><h3>🏥 Medical static site</h3><p>Blazing fast clinic website with appointment booking UI, optimized images, and mobile‑first design – no framework bloat.</p></div>
-      <!-- card 4 - from right -->
       <div class="card"><h3>🛍️ Brand storefront</h3><p>Minimal e‑commerce landing + catalog, integrated with headless CMS, static generation, and instant deployment.</p></div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT – GOOGLE FORM EMBEDDED -->
   <section id="contact">
     <h2 class="section-title">Let’s <span>connect</span></h2>
     <div class="contact-form">
-      <form action="#" method="post">
-        <div class="input-group"><input type="text" placeholder="Your name" required></div>
-        <div class="input-group"><input type="email" placeholder="Email address" required></div>
-        <div class="input-group"><textarea rows="5" placeholder="Tell me about your project..."></textarea></div>
-        <button type="submit" class="btn primary">📨 Send message</button>
-      </form>
-      <p style="text-align: center; margin-top: 1.5rem; color: var(--text-muted);">
-        <i class="fas fa-envelope"></i> 72407940fanish@gmail.com · <i class="fas fa-phone-alt"></i> +92 307 2407940
-      </p>
+      <!-- google form embed – exactly the requested link -->
+      <div class="google-form-container">
+        <iframe src="https://forms.gle/ammoHgxMH5xP664u5" title="Google Form - Get in touch with Zain">
+          Loading form…
+        </iframe>
+      </div>
+      <!-- additional contact details (unchanged, but nice to keep) -->
+      <div class="contact-info-note">
+        <i class="fas fa-envelope"></i> 72407940fanish@gmail.com 
+        · <i class="fas fa-phone-alt"></i> +92 307 2407940
+      </div>
     </div>
   </section>
 </main>
@@ -597,5 +590,4 @@
   })();
 </script>
 </body>
-
 </html>
